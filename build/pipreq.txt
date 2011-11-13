@@ -1,2 +1,2 @@
-pybbm
+-e hg+http://bitbucket.org/zeus/pybb#egg=pybb
 django-registration

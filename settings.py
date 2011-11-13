@@ -112,6 +112,11 @@ LOGGING = {
     }
 }
 
+try:
+    from settings_local import *
+except ImportError:
+    pass
+
 import sys
 if 'test' in sys.argv or 'test_coverage' in sys.argv:
     DATABASES['default'] = {
