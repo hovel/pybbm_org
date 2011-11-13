@@ -19,8 +19,8 @@ DATABASES = {
         }
 }
 TIME_ZONE = 'Europe/Moscow'
-LANGUAGE_CODE = 'ru-ru'
-USE_I18N = True
+#LANGUAGE_CODE = 'ru-ru'
+#USE_I18N = True
 SITE_ID = 1
 
 MEDIA_ROOT = ''
