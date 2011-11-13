@@ -3,6 +3,12 @@ from django.core.management import execute_manager
 import sys
 import os
 sys.path.insert(0, os.path.abspath('./../../'))
+try:
+    import local_path
+    import sys
+    sys.path.extend(local_path.PATHS)
+except ImportError:
+    pass
 import imp
 try:
     imp.find_module('settings') # Assumed to be in the same directory.

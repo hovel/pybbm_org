@@ -9,12 +9,18 @@ PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'testdb.sqlite',                      # Or path to database file if using sqlite3.
-    }
-}
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pybbm',
+        'HOST': 'localhost',
+        'PASSWORD': 'django',
+        'USER': 'django',
+        'TEST_CHARSET': 'UTF8',
 
-LANGUAGE_CODE = 'en-us'
+        }
+}
+TIME_ZONE = 'Europe/Moscow'
+LANGUAGE_CODE = 'ru-ru'
+USE_I18N = True
 SITE_ID = 1
 
 MEDIA_ROOT = ''
@@ -47,7 +53,7 @@ MIDDLEWARE_CLASSES = (
     'pybb.middleware.PybbMiddleware',
 )
 
-ROOT_URLCONF = 'testapp.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates')
@@ -66,6 +72,7 @@ INSTALLED_APPS = (
     'registration',
     'sorl.thumbnail',
     'south',
+    'pure_pagination',
 
 )
 
@@ -104,3 +111,11 @@ LOGGING = {
         },
     }
 }
+
+import sys
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test_database.sqlite'
+    }
+

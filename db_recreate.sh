@@ -1,0 +1,1 @@
+echo "drop database pybbm; create database pybbm charset utf8; grant all on pybbm.* to 'django'@'localhost' identified by 'django'" | mysql -uroot
