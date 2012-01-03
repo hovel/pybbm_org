@@ -5,6 +5,10 @@ TEMPLATE_DEBUG = DEBUG
 
 import os
 
+ADMINS = (
+    ('Pavel Zhukov', 'gelios@gmail.com'),
+)
+
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DATABASES = {
@@ -111,6 +115,9 @@ LOGGING = {
         },
     }
 }
+
+PYBB_ATTACHMENT_ENABLE = True
+ACCOUNT_ACTIVATION_DAYS = 1
 
 try:
     from settings_local import *
