@@ -27,7 +27,7 @@ def fu():
     with cd(PROJECT_ROOT):
         run('hg pull')
         run('hg update -C default')
-        run('pip -E ../env install -e hg+http://bitbucket.org/zeus/pybb#egg=pybb --upgrade --no-deps')
+        run('pip -E ../env install -e hg+http://bitbucket.org/zeus/pybb@develop#egg=pybb --upgrade --no-deps')
         run('../env/bin/python manage.py syncdb')
         run('../env/bin/python manage.py migrate')
         run('../env/bin/python manage.py collectstatic --noinput')

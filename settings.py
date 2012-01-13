@@ -119,6 +119,8 @@ LOGGING = {
 PYBB_ATTACHMENT_ENABLE = True
 ACCOUNT_ACTIVATION_DAYS = 1
 
+PYBB_TEMPLATE = "pybb/bootstrap_base.html"
+
 try:
     from settings_local import *
 except ImportError:
