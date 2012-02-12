@@ -11,23 +11,22 @@ PROJECT_PROCESS = 'pybbm'
 
 PROJECT_BASEDIR = '/home/zeus/webapps/%s' % PROJECT_PROCESS
 PROJECT_ROOT = '/home/zeus/webapps/%s/%s'% (PROJECT_PROCESS, PROJECT_NAME)
-PROJECT_SOURCE = 'ssh://hg@bitbucket.org/zeus/%s' % PROJECT_NAME
+PROJECT_SOURCE = 'git@github.com:hovel/%s.git' % PROJECT_NAME
 #noinspection PyRedeclaration
-env.hosts = ['zeus@web223.webfaction.com']
+env.hosts = ['zeus@pybbm.org']
 
 
 def install():
     with cd(PROJECT_BASEDIR):
-        run('hg clone %s' % PROJECT_SOURCE)
+        run('git clone %s' % PROJECT_SOURCE)
         run('virtualenv env')
         run('pip-2.7 -E env install -r %s/build/pipreq.txt' % PROJECT_NAME)
 
 def fu():
     local('./manage.py test pybb')
     with cd(PROJECT_ROOT):
-        run('hg pull')
-        run('hg update -C default')
-        run('pip -E ../env install -e hg+http://bitbucket.org/zeus/pybb@develop#egg=pybb --upgrade --no-deps')
+        run('git pull')
+        run('pip -E ../env install -e git+https://github.com/hovel/pybbm.git#egg=pybbm --upgrade --no-deps')
         run('../env/bin/python manage.py syncdb')
         run('../env/bin/python manage.py migrate')
         run('../env/bin/python manage.py collectstatic --noinput')

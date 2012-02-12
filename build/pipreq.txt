@@ -1,2 +1,2 @@
--e hg+http://bitbucket.org/zeus/pybb#egg=pybb
+-e git+https://github.com/hovel/pybbm.git#egg=pybbm
 django-registration
