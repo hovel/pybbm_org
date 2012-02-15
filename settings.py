@@ -23,7 +23,7 @@ DATABASES = {
         }
 }
 TIME_ZONE = 'Europe/Moscow'
-#LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'en-US'
 #USE_I18N = True
 SITE_ID = 1
 
