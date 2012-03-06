@@ -7,7 +7,7 @@ from fabric.api import *
 
 
 PROJECT_NAME = 'pybbm'
-PROJECT_PROCESS = 'pybbm'
+PROJECT_PROCESS = 'pybbm_org'
 
 PROJECT_BASEDIR = '/home/zeus/webapps/%s' % PROJECT_PROCESS
 PROJECT_ROOT = '/home/zeus/webapps/%s/%s'% (PROJECT_PROCESS, PROJECT_NAME)
