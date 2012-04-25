@@ -122,6 +122,11 @@ ACCOUNT_ACTIVATION_DAYS = 1
 
 PYBB_TEMPLATE = "pybb/bootstrap_base.html"
 
+import warnings
+warnings.filterwarnings(
+    'error', r"DateTimeField received a naive datetime",
+    RuntimeWarning, r'django\.db\.models\.fields')
+
 try:
     from settings_local import *
 except ImportError:
