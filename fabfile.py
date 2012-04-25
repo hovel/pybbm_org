@@ -28,6 +28,7 @@ def fu():
         run('git fetch')
         run('git checkout origin/master')
         run('pip -E ../env install pybbm --upgrade --no-deps')
+        run('pip -E ../env install -r build/pipreq.txt')
         run('../env/bin/python manage.py syncdb')
         run('../env/bin/python manage.py migrate')
         run('../env/bin/python manage.py collectstatic --noinput')
