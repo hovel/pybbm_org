@@ -76,12 +76,14 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'south',
     'pure_pagination',
-
+    'captcha'
 )
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+USE_TZ = True
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',

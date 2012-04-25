@@ -6,8 +6,8 @@ __author__ = 'zeus'
 from fabric.api import *
 
 
-PROJECT_NAME = 'pybbm'
-PROJECT_PROCESS = 'pybbm_org'
+PROJECT_NAME = 'pybbm_org'
+PROJECT_PROCESS = 'pybbm'
 
 PROJECT_BASEDIR = '/home/zeus/webapps/%s' % PROJECT_PROCESS
 PROJECT_ROOT = '/home/zeus/webapps/%s/%s'% (PROJECT_PROCESS, PROJECT_NAME)
@@ -25,8 +25,9 @@ def install():
 def fu():
     local('./manage.py test pybb')
     with cd(PROJECT_ROOT):
-        run('git pull')
-        run('pip -E ../env install -e git+https://github.com/hovel/pybbm.git#egg=pybbm --upgrade --no-deps')
+        run('git fetch')
+        run('git checkout origin/master')
+        run('pip -E ../env install pybbm --upgrade --no-deps')
         run('../env/bin/python manage.py syncdb')
         run('../env/bin/python manage.py migrate')
         run('../env/bin/python manage.py collectstatic --noinput')
