@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'pybb',
     'pytils',
+    'registration_defaults',
     'registration',
     'sorl.thumbnail',
     'south',

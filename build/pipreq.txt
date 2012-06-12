@@ -1,3 +1,4 @@
 -e git+https://github.com/hovel/pybbm.git#egg=pybbm
 django-registration
 django-simple-captcha
+django-registration-defaults
