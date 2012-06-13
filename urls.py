@@ -11,7 +11,10 @@ urlpatterns = patterns('',
     (r'^', include('pybb.urls', namespace='pybb')),
     url(r'^accounts/register/$',
         register,
-        kwargs={'form_class': RegistrationFormCaptcha},
+        kwargs={
+            'form_class': RegistrationFormCaptcha,
+            'backend': 'registration.backends.default.DefaultBackend'
+        },
         name='registration_register'),
     (r'^accounts/', include('registration.urls')),
     (r'^captcha/', include('captcha.urls')),
