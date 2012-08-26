@@ -130,6 +130,8 @@ warnings.filterwarnings(
     'error', r"DateTimeField received a naive datetime",
     RuntimeWarning, r'django\.db\.models\.fields')
 
+ACCOUNT_OPEN_SIGNUP = True
+
 try:
     from settings_local import *
 except ImportError:
