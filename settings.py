@@ -72,12 +72,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'pybb',
     'pytils',
-    'registration_defaults',
-    'registration',
+    'account',
     'sorl.thumbnail',
     'south',
     'pure_pagination',
-    'captcha'
+    'captcha',
+    'pinax_theme_bootstrap_account',
+    'pinax_theme_bootstrap',
+    'django_forms_bootstrap',
 )
 
 STATICFILES_DIRS = (
@@ -121,7 +123,7 @@ LOGGING = {
 PYBB_ATTACHMENT_ENABLE = True
 ACCOUNT_ACTIVATION_DAYS = 1
 
-PYBB_TEMPLATE = "pybb/bootstrap_base.html"
+PYBB_TEMPLATE = "site_base.html"
 
 import warnings
 warnings.filterwarnings(
