@@ -7,6 +7,8 @@ pytils>=0.2.3
 django-pure-pagination>=0.2.1
 pybbm
 django-simple-captcha
+lxml
+pillow
 
 # TODO: remove dependencies
 django-annoying>=0.7.6
