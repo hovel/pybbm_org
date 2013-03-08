@@ -6,6 +6,7 @@ sorl-thumbnail>=11.12
 pytils>=0.2.3
 django-pure-pagination>=0.2.1
 pybbm
+django-simple-captcha
 
 # TODO: remove dependencies
 django-annoying>=0.7.6
