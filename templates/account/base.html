@@ -1,0 +1,26 @@
+{% extends "theme_bootstrap/subnav_base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block body_class %}account{% endblock %}
+
+{% block subnav %}
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>{% trans "Account" %}</strong></div>
+    <div class="list-group">
+        <a class="list-group-item settings" href="{% url "account_settings" %}">
+            {% trans "Settings" %}
+        </a>
+        <a class="list-group-item password" href="{% url "account_password" %}">
+            {% trans "Change password" %}
+        </a>
+        <a class="list-group-item delete" href="{% url "account_delete" %}">
+            {% trans "Delete account" %}
+        </a>
+        <a class="list-group-item" href="{% url "pybb:edit_profile" %}">
+            Profile settings
+        </a>
+    </div>
+</div>
+{% endblock %}
