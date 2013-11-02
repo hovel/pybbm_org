@@ -109,7 +109,8 @@ INSTALLED_APPS = (
     'account',
     'pinax_theme_bootstrap',
     'bootstrapform',
-    'captcha'
+    'captcha',
+    'gunicorn'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
