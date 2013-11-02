@@ -7,7 +7,6 @@ pytils>=0.2.3
 django-pure-pagination>=0.2.1
 pybbm
 django-simple-captcha
-lxml
 pillow==2.0.0
 pinax-theme-bootstrap==4.0
 django-user-accounts
