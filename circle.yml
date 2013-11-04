@@ -3,7 +3,7 @@ dependencies:
     - pip install -r build/pipreq.txt -U
 test:
   override:
-    - ./manage.py test pybbm_org
+    - ./manage.py test pybbm_org --noinput
 deployment:
   production:
     branch: master
