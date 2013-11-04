@@ -9,6 +9,6 @@ pybbm
 django-simple-captcha
 pillow==2.0.0
 pinax-theme-bootstrap==4.0
-django-user-accounts
+django-user-accounts>=1.0b14
 boto
 django-ses
