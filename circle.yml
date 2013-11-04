@@ -1,0 +1,11 @@
+dependencies:
+  pre:
+    - pip install -r buld/pipreq.txt -U
+test:
+  override:
+    - ./manage.py test pybbm_org
+deployment:
+  production:
+    branch: master
+    commands:
+      - fab fu
