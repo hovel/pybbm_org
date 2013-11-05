@@ -24,4 +24,4 @@ def fu():
         run('%s/env/bin/python %s/manage.py syncdb' % (PROJECT_BASEDIR, PROJECT_ROOT) )
         run('%s/env/bin/python %s/manage.py migrate' % (PROJECT_BASEDIR, PROJECT_ROOT))
         run('%s/env/bin/python %s/manage.py collectstatic --noinput' % (PROJECT_BASEDIR, PROJECT_ROOT))
-        run('kill -HUP `cat %s/log/pidfile`' % PROJECT_BASEDIR)
+        run('sudo kill -HUP `cat %s/log/pidfile`' % PROJECT_BASEDIR)
