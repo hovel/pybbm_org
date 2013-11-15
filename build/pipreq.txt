@@ -4,7 +4,7 @@ Markdown>=2.1
 postmarkup>=1.2.0
 sorl-thumbnail>=11.12
 pytils>=0.2.3
-django-pure-pagination>=0.2.1
+django-pure-pagination
 pybbm
 django-simple-captcha
 pillow==2.0.0

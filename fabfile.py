@@ -12,7 +12,7 @@ PROJECT_PROCESS = 'pybbm'
 PROJECT_BASEDIR = '/home/geyser/%s' % PROJECT_NAME
 PROJECT_ROOT = '/home/geyser/%s/%s' % (PROJECT_NAME, PROJECT_NAME)
 PROJECT_SOURCE = 'git@github.com:hovel/%s.git' % PROJECT_NAME
-env.hosts = ['geyser@ec2-50-17-136-53.compute-1.amazonaws.com']
+env.hosts = ['geyser@ec2-107-20-93-189.compute-1.amazonaws.com']
 
 
 def fu():
