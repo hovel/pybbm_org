@@ -6,7 +6,7 @@ postmarkup>=1.2.0
 sorl-thumbnail>=11.12
 pytils>=0.2.3
 django-pure-pagination
-pybbm
+git+https://github.com/hovel/pybbm.git#egg=pybbm
 django-simple-captcha
 pillow==2.0.0
 pinax-theme-bootstrap==4.0
