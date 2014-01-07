@@ -159,6 +159,8 @@ CAPTCHA_LENGTH = 6
 PYBB_ATTACHMENT_ENABLE = True
 PYBB_TEMPLATE = 'site_base.html'
 
+SECRET_KEY = 'test_key'
+
 try:
     from settings_local import *
 except ImportError:
