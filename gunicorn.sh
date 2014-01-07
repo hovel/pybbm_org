@@ -11,13 +11,13 @@
 
 # -----------------------------------------------------------------------------
 # *** change these paths ***
-VIRTUAL_ACTIVATE=/home/zeus/.virtualenvs/pybbmorg/bin/activate
-SITE_INSTANCE=/home/zeus/pybbmorg
+VIRTUAL_ACTIVATE=/home/zeus/.virtualenvs/pybbm_org/bin/activate
+SITE_INSTANCE=/home/zeus/pybbm_org
 # -----------------------------------------------------------------------------
 
-CONFIG_FILE=/home/zeus/pybbmorg/conf/gunicorn.conf.py
-LOG_FILE=/home/zeus/logs/pybbmorg-error.log
-PID_FILE=/home/zeus/pybbmorg/wsgi.pid
+CONFIG_FILE=/home/zeus/pybbm_org/conf/gunicorn.conf.py
+LOG_FILE=/home/zeus/logs/pybbm_org-error.log
+PID_FILE=/home/zeus/pybbm_org/wsgi.pid
 CALL_INFO="$0 $*"
 
 
