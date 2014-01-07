@@ -1,10 +1,10 @@
-{% extends "theme_bootstrap/less_base.html" %}
+{% extends "theme_bootstrap/base.html" %}
 {% load static %}
 {% block head_title %}{% block title %}{% endblock %}{% endblock %}
 
 {% block style_base %}
 {{ block.super }}
-<link href="{% static "style.less" %}" rel="stylesheet/less" type="text/css">
+<link href="{% static "style.css" %}" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="{% static "favicon.ico" %}">
 {% block extra_style %}{% endblock %}
 {% endblock %}
