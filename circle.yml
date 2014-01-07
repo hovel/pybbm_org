@@ -8,4 +8,4 @@ deployment:
   production:
     branch: master
     commands:
-      - fab fu
+      - fab update
