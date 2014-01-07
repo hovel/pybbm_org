@@ -1,0 +1,10 @@
+bind = "127.0.0.1:8102"
+max_requests = 10
+workers = 2
+daemon = True
+preload = True
+user = 'zeus'
+group = 'zeus'
+accesslog = '/home/zeus/logs/pybbmorg.log'
+errorlog = '/home/zeus/logs/pybbmorg-error.log'
+pidfile = '/home/zeus/pybbmorg/wsgi.pid'
