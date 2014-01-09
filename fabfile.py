@@ -48,6 +48,7 @@ def install():
 
 
 def update():
+    db_backup()
     with cd(PROJECT_BASEDIR):
         sudo('git pull')
         sudo('%s install -r build/pipreq.txt -U' % PIP_PATH)
