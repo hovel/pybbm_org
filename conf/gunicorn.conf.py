@@ -1,7 +1,7 @@
 bind = "127.0.0.1:8102"
 max_requests = 10
 workers = 2
-daemon = True
+daemon = False
 preload = True
 user = 'zeus'
 group = 'zeus'
