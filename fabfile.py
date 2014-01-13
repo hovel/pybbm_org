@@ -100,6 +100,8 @@ def put_bsupervisord_setings():
     with settings(sudo_user='root'):
         sudo('chown zeus:zeus %s' % remote_path)
         sudo('chmod +x %s' % remote_path)
+    sudo('supervisorctl -c %s/supervisord/supervisord.conf reread' % HOME)
+    sudo('supervisorctl -c %s/supervisord/supervisord.conf update' % HOME)
 
 
 def copy_nginx_config():
