@@ -63,17 +63,17 @@ def update():
 
 def start():
     with cd(PROJECT_BASEDIR):
-        sudo('supervisorctl start pybbm_org_gunicorn')
+        sudo('supervisorctl -c %s/supervisord/supervisord.conf start pybbm_org_gunicorn' % HOME)
 
 
 def stop():
     with cd(PROJECT_BASEDIR):
-        sudo('supervisorctl stop pybbm_org_gunicorn')
+        sudo('supervisorctl -c %s/supervisord/supervisord.conf stop pybbm_org_gunicorn' % HOME)
 
 
 def restart():
     with cd(PROJECT_BASEDIR):
-        sudo('supervisorctl restart pybbm_org_gunicorn')
+        sudo('supervisorctl -c %s/supervisord/supervisord.conf restart pybbm_org_gunicorn' % HOME)
 
 
 def db_backup():
