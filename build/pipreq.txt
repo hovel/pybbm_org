@@ -5,7 +5,7 @@ pytils>=0.2.3
 django-pure-pagination
 git+https://github.com/hovel/pybbm.git#egg=pybbm
 django-simple-captcha
-pillow==2.0.0
+pillow
 pinax-theme-bootstrap==4.0
 django-user-accounts>=1.0b14
 boto
