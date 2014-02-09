@@ -2,11 +2,12 @@ Django>=1.6,<1.7
 mysql-python
 South>=0.7.5
 pytils>=0.2.3
+sorl-thumbnail
 django-pure-pagination
 git+https://github.com/hovel/pybbm.git#egg=pybbm
 django-simple-captcha
 pillow
-pinax-theme-bootstrap==4.0
+pinax-theme-bootstrap>=4.0
 django-user-accounts>=1.0b14
 boto
 django-ses
