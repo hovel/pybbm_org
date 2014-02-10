@@ -3,7 +3,7 @@ mysql-python
 South>=0.7.5
 pytils>=0.2.3
 sorl-thumbnail
-django-pure-pagination
+https://github.com/hovel/django-pure-pagination.git#egg=django-pure-pagination
 git+https://github.com/hovel/pybbm.git#egg=pybbm
 django-simple-captcha
 pillow
