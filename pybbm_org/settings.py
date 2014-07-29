@@ -72,6 +72,7 @@ MIDDLEWARE_CLASSES = (
     'pybb.middleware.PybbMiddleware',
     'account.middleware.LocaleMiddleware',
     'account.middleware.TimezoneMiddleware',
+    'pybbm_org.middleware.RemoteAddrMiddleware',
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
