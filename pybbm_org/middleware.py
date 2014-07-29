@@ -10,7 +10,7 @@ class RemoteAddrMiddleware(object):
             if not forwarded_for:
                 return
             try:
-                forwarded_for.split(',')[0].strip()
+                forwarded_for = forwarded_for.split(',')[0].strip()
                 request.META['REMOTE_ADDR'] = forwarded_for
             except:
                 pass
