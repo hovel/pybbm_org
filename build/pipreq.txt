@@ -1,4 +1,4 @@
-Django>=1.6,<1.7
+Django==1.6.2
 mysql-python
 South>=0.7.5
 pytils>=0.2.3
