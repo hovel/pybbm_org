@@ -1,4 +1,4 @@
-Django==1.6.2
+Django>=1.6,<1.7
 mysql-python
 South>=0.7.5
 pytils>=0.2.3
@@ -12,5 +12,5 @@ django-user-accounts>=1.0b14
 boto
 django-ses
 django-storages
-gunicorn==18.0
+gunicorn
 python-dateutil<2.0
