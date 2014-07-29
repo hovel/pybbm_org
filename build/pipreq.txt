@@ -12,5 +12,5 @@ django-user-accounts>=1.0b14
 boto
 django-ses
 django-storages
-gunicorn
+gunicorn==18.0
 python-dateutil<2.0
