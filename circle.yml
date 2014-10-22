@@ -8,4 +8,5 @@ deployment:
   production:
     branch: master
     commands:
-      - fab update
+      - ssh zeus@${DEPLOY_HOST} /home/zeus/deploy.sh pybbm_org production ${ANSIBLE_PASSWORD}:
+          timeout: 600
