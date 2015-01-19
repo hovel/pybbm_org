@@ -1,10 +1,10 @@
-Django>=1.6,<1.7
+Django>=1.7,<1.8
 mysql-python
 South>=0.7.5
 pytils>=0.2.3
 sorl-thumbnail
 git+https://github.com/hovel/django-pure-pagination.git#egg=django_pure_pagination
-git+https://github.com/hovel/pybbm.git@e84d76d1c85454d7b6141af745d370001d994f7f#egg=pybbm
+pybbm
 django-simple-captcha
 pillow
 pinax-theme-bootstrap>=4.0

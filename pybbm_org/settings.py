@@ -94,7 +94,7 @@ ROOT_URLCONF = 'pybbm_org.urls'
 WSGI_APPLICATION = 'pybbm_org.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates')
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -105,7 +105,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'south',
     'sorl.thumbnail',
     'pybb',
     'pybbm_org',
