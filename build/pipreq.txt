@@ -13,3 +13,4 @@ django-ses
 django-storages
 gunicorn
 python-dateutil<2.0
+bbcode
