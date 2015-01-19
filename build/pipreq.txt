@@ -1,6 +1,5 @@
 Django>=1.7,<1.8
 mysql-python
-South>=0.7.5
 pytils>=0.2.3
 sorl-thumbnail
 git+https://github.com/hovel/django-pure-pagination.git#egg=django_pure_pagination
