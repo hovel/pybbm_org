@@ -14,17 +14,27 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'circle_test',                      # Or path to database file if using sqlite3.
-        'USER': 'ubuntu',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        'TEST_NAME': 'circle_test',
-        'TEST_CHARSET': 'utf8',
-        'TEST_COLLATION': 'utf8_general_ci'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_ENV_MYSQL_DATABASE', 'local_db'),
+        'HOST': os.environ.get('DB_PORT_3306_TCP_ADDR', 'localhost'),
+        'PORT': os.environ.get('DB_PORT_3306_TCP_PORT', 3306),
+        'USER': 'root',
+        'PASSWORD': os.environ.get('DB_ENV_MYSQL_ROOT_PASSWORD', 'pass'),
+        'TEST_CHARSET': 'UTF8',
+        'ATOMIC_REQUESTS': True,
     }
 }
+
+if 'MC_PORT_11211_TCP_ADDR' in os.environ and 'MC_PORT_11211_TCP_PORT' in os.environ:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '%s:%s' % (os.environ['MC_PORT_11211_TCP_ADDR'],
+                                   os.environ['MC_PORT_11211_TCP_PORT']),
+            'TIMEOUT': 186400,
+            'KEY_PREFIX': 'ostankino'
+        }
+    }
 
 ALLOWED_HOSTS = []
 
@@ -160,6 +170,13 @@ PYBB_ATTACHMENT_ENABLE = True
 PYBB_TEMPLATE = 'site_base.html'
 
 SECRET_KEY = 'test_key'
+
+if 'REDIS_PORT_6379_TCP_ADDR' in os.environ and 'REDIS_PORT_6379_TCP_PORT' in os.environ:
+    BROKER_URL = 'redis://%s:%s' % (os.environ['REDIS_PORT_6379_TCP_ADDR'],
+                                    os.environ['REDIS_PORT_6379_TCP_PORT'])
+else:
+    BROKER_URL = 'django://'
+CELERY_DEFAULT_QUEUE = 'pybbm_org_celery'
 
 try:
     from settings_local import *

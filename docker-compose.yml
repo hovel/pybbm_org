@@ -1,0 +1,24 @@
+web:
+  build: .
+  links:
+    - db
+    - mc
+    - redis
+  ports:
+    - "8000:80"
+    - "8022:22"
+  environment:
+    ROOT_PASS: 123
+  volumes:
+    - ".:/root/src"
+  command: /dev.sh
+db:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: pass
+    MYSQL_DATABASE: local_db
+  command: mysqld --character-set-server=utf8
+mc:
+  image: sylvainlasnier/memcached
+redis:
+  image: redis

@@ -1,0 +1,63 @@
+import os
+
+DEBUG = {{ hovel_django_debug }}
+TEMPLATE_DEBUG = DEBUG
+THUMBNAIL_DEBUG = DEBUG
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+SECRET_KEY = '{{ hovel_django_secret_key }}'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '{{ hovel_db.name }}',
+        'HOST': '{{ hovel_db.host }}',
+        'PORT': {{ hovel_db.port }},
+        'USER': '{{ hovel_db.user }}',
+        'PASSWORD': '{{ hovel_db.password }}',
+        'TEST_CHARSET': 'UTF8',
+        'ATOMIC_REQUESTS': {{ hovel_db.atomic_requests | default('True') }},
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '{{ hovel_django_cache.host }}:{{ hovel_django_cache.port }}',
+        'KEY_PREFIX': '{{ hovel_project_name }}'
+    }
+}
+
+ALLOWED_HOSTS = ['{{ hovel_http.domain }}', 'www.{{ hovel_http.domain }}']
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_SUBJECT_PREFIX = '[%s]' % ALLOWED_HOSTS[0]
+DEFAULT_FROM_EMAIL = 'info@%s' % ALLOWED_HOSTS[0]
+SERVER_EMAIL = 'admin@%s' % ALLOWED_HOSTS[0]
+
+EMAIL_HOST = '{{ hovel_django_email.host }}'
+EMAIL_PORT = {{ hovel_django_email.port }}
+
+ADMINS = (
+    {% for admin in hovel_django_admins %}
+        ('{{ admin.name }}', '{{ admin.email }}'),
+    {% endfor %}
+)
+
+# static and media
+from boto.s3.connection import SubdomainCallingFormat
+
+DEFAULT_FILE_STORAGE = '{{ hovel_project_root }}.s3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = '{{ hovel_project_root }}.s3utils.StaticRootS3BotoStorage'
+AWS_ACCESS_KEY_ID = '{{ hovel_aws.access_key_id }}'
+AWS_SECRET_ACCESS_KEY = '{{ hovel_aws.secret_access_key }}'
+AWS_STORAGE_BUCKET_NAME = 'static.{{ hovel_http.domain }}'
+AWS_S3_CUSTOM_DOMAIN = 'static.{{ hovel_http.domain }}'
+AWS_CALLING_FORMAT = SubdomainCallingFormat
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_SECURE_URLS = False
+
+STATIC_BASE_URL = 'http://%s' % AWS_S3_CUSTOM_DOMAIN
+STATIC_URL = STATIC_BASE_URL + '/static/'
+MEDIA_URL = STATIC_BASE_URL + '/media/'

@@ -1,5 +1,0 @@
----
-- hosts: local
-  roles:
-    - local_build
-    - dev_run
