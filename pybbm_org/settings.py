@@ -7,7 +7,6 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Pavel Zhukov', 'gelios@gmail.com'),
-    ('Sergey Fursov', 'geyser85@gmail.com')
 )
 
 MANAGERS = ADMINS
@@ -32,7 +31,7 @@ if 'MC_PORT_11211_TCP_ADDR' in os.environ and 'MC_PORT_11211_TCP_PORT' in os.env
             'LOCATION': '%s:%s' % (os.environ['MC_PORT_11211_TCP_ADDR'],
                                    os.environ['MC_PORT_11211_TCP_PORT']),
             'TIMEOUT': 186400,
-            'KEY_PREFIX': 'ostankino'
+            'KEY_PREFIX': 'pybbm_org'
         }
     }
 

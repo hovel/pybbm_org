@@ -1,5 +1,5 @@
 from account.views import SignupView
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
@@ -8,8 +8,7 @@ from pybbm_org.forms import PybbmRegistrationForm
 
 admin.autodiscover()
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('pybb.urls', namespace='pybb')),
@@ -18,4 +17,4 @@ urlpatterns = patterns(
     url(r"^accounts/", include("account.urls")),
     url(r'^captcha/', include('captcha.urls')),
 
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
