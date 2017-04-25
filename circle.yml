@@ -2,6 +2,8 @@ machine:
   services:
     - docker
 dependencies:
+  pre:
+    - pip install ansible boto six
   override:
     - "docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} ."
     - "docker run -d -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=test_db --name db mysql:latest mysqld --character-set-server=utf8"
@@ -10,10 +12,11 @@ test:
   override:
     - docker run -it --link db:db zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} /root/src/manage.py test pybbm_org --noinput
 deployment:
-  production:
+  master:
     branch: master
     commands:
       - docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}
       - "docker push zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH}"
-      - ssh zeus@${DEPLOY_HOST} /home/zeus/deploy-inventory/deploy_project.sh ${CIRCLE_PROJECT_REPONAME} ${CIRCLE_BRANCH} ${ANSIBLE_PASSWORD}:
-          timeout: 600
+      - "git clone -b direct_ansible git@github.com:hovel/deploy-inventory.git"
+      - "cp deploy-inventory/ansible_circle.cfg ~/.ansible.cfg"
+      - "ansible-playbook deploy-inventory/ansible/playbooks_new/pybbm_org/i_pybbm_org.yml --tags=application"
