@@ -3,8 +3,9 @@ machine:
     - docker
 dependencies:
   pre:
-    - pip install ansible boto six
+    - pip install -U ansible boto six
   override:
+    - cp build/supervisor_${CIRCLE_BRANCH}.conf build/supervisor.conf || true
     - "docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} ."
     - "docker run -d -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=test_db --name db mysql:latest mysqld --character-set-server=utf8"
     - sleep 10
@@ -15,8 +16,8 @@ deployment:
   master:
     branch: master
     commands:
-      - docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}
+      - "docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}"
       - "docker push zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH}"
-      - "git clone -b direct_ansible git@github.com:hovel/deploy-inventory.git"
-      - "cp deploy-inventory/ansible_circle.cfg ~/.ansible.cfg"
-      - "ansible-playbook deploy-inventory/ansible/playbooks_new/pybbm_org/i_pybbm_org.yml --tags=application"
+      - "git clone -b direct_ansible git@github.com:hovel/deploy-inventory.git ~/deploy-inventory"
+      - "cp ~/deploy-inventory/ansible_circle.cfg ~/.ansible.cfg"
+      - "ansible-playbook ~/deploy-inventory/ansible/playbooks_new/pybbm_org/i_pybbm_org.yml --tags=application"
